@@ -1,6 +1,5 @@
 #dx = [-1,-1,-1,0,0,0,1,1,1]
 #dy = [-1,0,1,-1,0,1,-1,0,1]
-''' 지도 읽기 '''
 def readMap(filename):
     file = open(filename,'r')
     All = file.read()
@@ -8,9 +7,6 @@ def readMap(filename):
     lines = All.split('\n')
     return lines
 
-'''
-    화재 인지 함수 
-'''
 def fire_recognize(row, col, market):   
 #   print(market[row][col])
     if row-1 >= 0 and row+1 < 13:
@@ -141,12 +137,6 @@ def find_path(row,col,path):
     return real_path
         
 
-'''
- 좌 1 
- 우 2 
- 상 3
- 하 4
-'''
 def bfs(row,col,Map):
     arr = []
     visit = [[0] * 22 for _ in range(13)]
