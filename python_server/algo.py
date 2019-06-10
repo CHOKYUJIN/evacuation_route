@@ -135,7 +135,30 @@ def find_path(row,col,path):
             real_path[x-1][y] = 4
             x-=1
     return real_path
-        
+def find_close_point(row,col,Map):
+    left = [row,col-1]
+    right = [row,col+1]
+    up = [row-1,col]
+    down = [row+1,col]
+    while True:
+        if Map[left[0]][left[1]] == '.':
+            return 1;
+        elif Map[right[0]][right[1]] == '.':
+            return 2;
+        elif Map[up[0]][up[1]] == '.':
+            return 3;
+        elif Map[down[0]][down[1]] == '.':
+            return 4;
+
+        if left[1]>0:
+            left[1] -= 1
+        if right[1] < 21:
+            right[1] +=1
+        if up[0] > 0:
+            up[0] -= 1
+        if down[0] < 12:
+            down[0] +=1        
+
 
 def bfs(row,col,Map):
     arr = []
